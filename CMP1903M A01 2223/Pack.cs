@@ -8,13 +8,14 @@ namespace CMP1903M_A01_2223
 {
     class Pack
     {
+        
         List<Card> pack;
 
         public Pack()
         {
-            //Initialise the card pack here
+            
         }
-
+        /*
         public static bool shuffleCardPack(int typeOfShuffle)
         {
             //Shuffles the pack based on the type of shuffle
@@ -29,5 +30,6 @@ namespace CMP1903M_A01_2223
         {
             //Deals the number of cards specified by 'amount'
         }
+        */
     }
 }
