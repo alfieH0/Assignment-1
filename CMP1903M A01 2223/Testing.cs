@@ -12,7 +12,7 @@ namespace CMP1903M_A01_2223
         {
             bool gooddata = false;          //used to create a loop
             Pack call = new Pack();
-            Card call2 = new Card(0, 0);
+            Card call2 = new Card(0);
             string choice;      //saves users responce in menu 
             do                 //a menu that will loop until the user enters exit
             {

@@ -14,13 +14,17 @@ namespace CMP1903M_A01_2223
         //The 'set' methods for these properties could have some validation
         public int Value { get; set; }
         public int Suit { get; set; }
-        public Card(int v, int s) 
+        public Card(int c) 
         {
-            if (v > 13)
-            {
-                s += 1;
-                v = v - 13;
-            }
+            
+            int[] BasePack = {1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13};
+            string[] suit = { "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades",
+                              "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", 
+                              "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs",
+                              "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", };
+
+            
+            
         }
 
 
