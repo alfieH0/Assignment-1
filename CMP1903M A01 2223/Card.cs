@@ -14,19 +14,42 @@ namespace CMP1903M_A01_2223
         //The 'set' methods for these properties could have some validation
         public int Value { get; set; }
         public int Suit { get; set; }
-        public Card(int c) 
+        public Card(int Value, int Suit)
         {
-            
-            int[] BasePack = {1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13};
-            string[] suit = { "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades", "spades",
-                              "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", "diamonds", 
-                              "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs",
-                              "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", };
 
-            
-            
+            this.Value = Value;
+            this.Suit = Suit;
+
         }
+        public string SpecialCards
+        {
+            get
+            {
+                string name = string.Empty;
+                switch (Value)
+                {
+                    case (14):
+                        name = "Ace";
+                        break;
+                    case (13):
+                        name = "King";
+                        break;
+                    case (12):
+                        name = "Queen";
+                        break;
+                    case (11):
+                        name = "Jack";
+                        break;
+                    default:
+                        name = Value.ToString();
+                        break;
+                }
 
-
+                return name;
+            }
+        }
     }
+    
 }
+    
+

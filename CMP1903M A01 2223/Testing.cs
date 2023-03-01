@@ -17,12 +17,12 @@ namespace CMP1903M_A01_2223
             do                 //a menu that will loop until the user enters exit
             {
                 Console.Clear();            //used to make the program much nicer to use
-                Console.WriteLine("A: Figure out acceleration and rearrange");
+                Console.WriteLine("A: ");
                 choice = Console.ReadLine().ToUpper();           //this will save the responce to what was entered into the menu 
                 switch (choice)
                 {
                     case "A":
-                        call.Pack();
+                        call.
                         gooddata = true;
                         Console.Clear();
                         break;
