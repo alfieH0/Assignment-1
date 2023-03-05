@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
-    class Card
+  
+
+    public class Card
     {
+        public enum Suits
+        {
+            Hearts,
+            Diamonds,
+            Clubs,
+            Spades
+        }
         //Base for the Card class.
         //Value: numbers 1 - 13
         //Suit: numbers 1 - 4
         //The 'set' methods for these properties could have some validation
         public int Value { get; set; }
-        public int Suit { get; set; }
-        public Card(int Value, int Suit)
-        {
+        public Suits Suit { get; set; }
 
+        public Card(int Value, Suits Suit)
+        {
             this.Value = Value;
             this.Suit = Suit;
-
         }
+
         public string SpecialCards
         {
             get
@@ -28,7 +37,7 @@ namespace CMP1903M_A01_2223
                 string name = string.Empty;
                 switch (Value)
                 {
-                    case (14):
+                    case (1):
                         name = "Ace";
                         break;
                     case (13):
@@ -47,6 +56,17 @@ namespace CMP1903M_A01_2223
 
                 return name;
             }
+        }
+        public string CardName
+        {
+            get
+            {
+                return SpecialCards + "of" + Suit.ToString();
+            }
+        }
+        public void test() 
+        {
+            Console.WriteLine(CardName);
         }
     }
     
