@@ -9,10 +9,8 @@ namespace CMP1903M_A01_2223
 {
     public class Pack
     {
-
-
-        List<Card> pack = new List<Card>();
-        List<Card> shuffled = new List<Card>();
+        
+        private static List<Card> pack = new List<Card>();
 
         public void FillDeck()
         {
@@ -32,43 +30,48 @@ namespace CMP1903M_A01_2223
             var call = new Pack();
             switch (typeOfShuffle)
             {
-                case 0:
-                    call.FillDeck();
-                    break;
                 case 1:
                     call.FillDeck();
+                    break;
+                case 2:
+                    call.FillDeck();
                     call.FYShuffle();
+                    break;
+                case 3:
+                    call.FillDeck();
+                    for (int i = 0; i < 7; i++)
+                    {
+                        call.RiffleShuffle();
+                    }
+                    
                     break;//does one of the shuffle types 
             }
+            return true;
         }
         public static Card deal()
         {
-            bool GoodData = true;
-            var call = new Pack();
-            do
+            if (pack.Count == 0)
             {
-                foreach (Card card in call.pack)
-                {
-                    Console.WriteLine(card.CardName);
-                    GoodData = false;
+                return null;
+            }
 
+            Card card = pack[0];
+            Console.WriteLine(card.CardName);
+            Console.ReadLine();
+            pack.RemoveAt(0);
 
-                }
-            } while (GoodData == true);
-            return null;
+            return card;
         }
         public static List<Card> dealCard(int amount)
         {
-            var call = new Pack();
-            int i = 0;
-            if (i <= amount)
+
+            for (int i = 0; i < amount; i++)
             {
-                foreach (Card card in call.pack)
-                {
-                    Console.WriteLine(card.CardName);
-                }
+                Console.WriteLine(pack[i].CardName);
+                
             }
-            return null;
+            Console.ReadLine();
+            return pack;
         }
         public void FYShuffle()
         {
@@ -83,33 +86,24 @@ namespace CMP1903M_A01_2223
             }
 
         }
-        public static void RiffleShuffleDeck()
+        public void RiffleShuffle()
         {
-            var call = new Pack();
-            Random rand = new Random();
-            List<Card> RifShuffled = new List<Card>();
-            int n = call.pack.Count / 2;
-            int k = rand.Next(n);
-            int j = n + rand.Next(n);
 
-            for (int i = 0; i < call.pack.Count; i++)
+            int half = pack.Count / 2;
+            List<Card> OneHalf = pack.GetRange(0, half);
+            List<Card> SecHalf = pack.GetRange(half, pack.Count - half);
+
+            pack.Clear();
+            for (int i = 0; i < half; i++)
             {
-                if (k == 0 && j == call.pack.Count)
-                {
-                    k = rand.Next(n);
-                    j = n + rand.Next(n);
-                }
-
-                if (k > 0)
-                {
-                    RifShuffled[i] = call.pack[(i % 2 == 0) ? k-- - 1 : j++ - 1];
-                }
-                else
-                {
-                    RifShuffled[i] = call.pack[(i % 2 == 0) ? j++ - 1 : k-- - 1];
-                }
-                call.pack = RifShuffled;
+                pack.Add(OneHalf[i]);
+                pack.Add(SecHalf[i]);
+            }
+            if (SecHalf.Count > OneHalf.Count)
+            {
+                pack.AddRange(SecHalf.GetRange(half, SecHalf.Count - half));
             }
         }
     }
 }
+

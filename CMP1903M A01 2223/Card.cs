@@ -37,7 +37,7 @@ namespace CMP1903M_A01_2223
                 string name = string.Empty;
                 switch (Value)
                 {
-                    case (1):
+                    case (14):
                         name = "Ace";
                         break;
                     case (13):
