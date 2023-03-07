@@ -28,23 +28,17 @@ namespace CMP1903M_A01_2223
         public static bool ShuffleCardPack(int typeOfShuffle)
         {
             var call = new Pack();
+            call.FillDeck();
             switch (typeOfShuffle)
             {
                 case 1:
-                    call.FillDeck();
                     break;
                 case 2:
-                    call.FillDeck();
                     call.FYShuffle();
                     break;
                 case 3:
-                    call.FillDeck();
-                    for (int i = 0; i < 7; i++)
-                    {
-                        call.RiffleShuffle();
-                    }
-                    
-                    break;//does one of the shuffle types 
+                    call.RiffleShuffle();
+                    break;
             }
             return true;
         }
