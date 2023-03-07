@@ -50,28 +50,43 @@ namespace CMP1903M_A01_2223
         }
         public static Card deal()
         {
-            if (pack.Count == 0)
+            try
             {
+                Card card = pack[0];
+                Console.WriteLine(card.CardName);
+                Console.ReadLine();
+                pack.RemoveAt(0);
+                return card;
+            }
+            catch (ArgumentOutOfRangeException) 
+            {
+                Console.WriteLine("you have run out of cards in the pack");
                 return null;
             }
-
-            Card card = pack[0];
-            Console.WriteLine(card.CardName);
-            Console.ReadLine();
-            pack.RemoveAt(0);
-
-            return card;
+            
         }
         public static List<Card> dealCard(int amount)
         {
-
-            for (int i = 0; i < amount; i++)
+            try
             {
-                Console.WriteLine(pack[i].CardName);
-                
+                for (int i = 0; i < amount; i++)
+                {
+                    Console.WriteLine(pack[0].CardName);
+                    pack.RemoveAt(0);
+                }
+                Console.ReadLine();
+                return pack;
             }
-            Console.ReadLine();
-            return pack;
+            catch (ArgumentOutOfRangeException)
+            { 
+                Console.WriteLine("you have run out of cards in the pack");
+                return pack;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("what you entered was not a number try again");
+                return pack;
+            }
         }
         public void FYShuffle()
         {

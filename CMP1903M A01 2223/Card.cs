@@ -61,7 +61,7 @@ namespace CMP1903M_A01_2223
         {
             get
             {
-                return SpecialCards + "of" + Suit.ToString();
+                return SpecialCards + " of " + Suit.ToString();
             }
         }
         public void test() 
