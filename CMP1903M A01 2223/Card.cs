@@ -10,7 +10,7 @@ namespace CMP1903M_A01_2223
 
     public class Card
     {
-        public enum Suits
+        public enum Suits    //makes these pre defined constants    
         {
             Hearts,
             Diamonds,
@@ -34,7 +34,7 @@ namespace CMP1903M_A01_2223
         {
             get
             {
-                string name = string.Empty;
+                string name = string.Empty;     //sets the specific numbers to allways to represented by these strings 
                 switch (Value)
                 {
                     case (14):
@@ -57,16 +57,12 @@ namespace CMP1903M_A01_2223
                 return name;
             }
         }
-        public string CardName
+        public string CardName  //will print the card number and suit when called 
         {
             get
             {
                 return SpecialCards + " of " + Suit.ToString();
             }
-        }
-        public void test() 
-        {
-            Console.WriteLine(CardName);
         }
     }
     

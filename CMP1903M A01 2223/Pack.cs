@@ -25,7 +25,7 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        public static bool ShuffleCardPack(int typeOfShuffle)
+        public static bool ShuffleCardPack(int typeOfShuffle)   //based on user input will fill the deck then shuffle the deck if required 
         {
             var call = new Pack();
             call.FillDeck();
@@ -42,7 +42,7 @@ namespace CMP1903M_A01_2223
             }
             return true;
         }
-        public static Card deal()
+        public static Card deal()           //deals one card
         {
             try
             {
@@ -59,7 +59,7 @@ namespace CMP1903M_A01_2223
             }
             
         }
-        public static List<Card> dealCard(int amount)
+        public static List<Card> dealCard(int amount)       //deals the ammount of cards thats been specified 
         {
             try
             {
@@ -82,7 +82,7 @@ namespace CMP1903M_A01_2223
                 return pack;
             }
         }
-        public void FYShuffle()
+        public void FYShuffle()         //Fisher-Yates Shuffle the deck of cards 
         {
             Random rng = new Random();
 
@@ -95,7 +95,7 @@ namespace CMP1903M_A01_2223
             }
 
         }
-        public void RiffleShuffle()
+        public void RiffleShuffle()     //does a perfect riffle shuffle to the cards
         {
 
             int half = pack.Count / 2;
