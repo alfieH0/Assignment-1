@@ -10,8 +10,12 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            Testing practic= new Testing();
-            practic.testing();
+            Console.WriteLine("welcome to the program");
+            Console.ReadKey();
+            Tutorial practic= new Tutorial();
+            practic.menu();
+            Console.WriteLine("Goodbye thank you for using our program");
+            Console.ReadKey();
         }
     }
 }
