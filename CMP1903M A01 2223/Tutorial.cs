@@ -31,7 +31,7 @@ namespace CMP1903M_A01_2223
                         break;
                     case "2":
                         Pack.ShuffleCardPack(3);
-                        //dealing();
+                        ThreeDeal();
                         gooddata = true;
                         Console.Clear();
                         break;
@@ -44,6 +44,13 @@ namespace CMP1903M_A01_2223
             } while (gooddata == false);
         }
 
+        public void ThreeDeal()
+        {
+            Pack call = new Pack();
+            Pack.ShuffleCardPack(2);
+            Pack.ThreeCard();
+
+        }
 
         public void instructions()
         {

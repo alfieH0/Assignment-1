@@ -37,7 +37,7 @@ namespace CMP1903M_A01_2223
                 string name = string.Empty;     //sets the specific numbers to allways to represented by these strings 
                 switch (Value)
                 {
-                    case (14):
+                    case (1):
                         name = "Ace";
                         break;
                     case (13):

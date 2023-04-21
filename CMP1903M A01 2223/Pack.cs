@@ -9,7 +9,7 @@ namespace CMP1903M_A01_2223
 {
     public class Pack
     {
-        
+
         private static List<Card> pack = new List<Card>();
 
         public void FillDeck()
@@ -19,8 +19,11 @@ namespace CMP1903M_A01_2223
             for (int i = 0; i < 52; i++)
             {
                 Card.Suits suit = (Card.Suits)(Math.Floor((decimal)i / 13));
-                //Add 2 as a deck starts at 2
                 int num1 = i % 13 + 2;
+                if (num1 == 14) // check if it's an Ace
+                {
+                    num1 = 1; // set the value of Ace to 1
+                }
                 pack.Add(new Card(num1, suit));
             }
         }
@@ -59,16 +62,103 @@ namespace CMP1903M_A01_2223
             }
             
         }
-        public static List<Card> dealCard(int amount)       //deals the ammount of cards thats been specified 
+        public static List<Card> ThreeCard()       //deals the ammount of cards thats been specified 
         {
+
             try
             {
-                for (int i = 0; i < amount; i++)
-                {
-                    Console.WriteLine(pack[0].CardName);
-                    pack.RemoveAt(0);
-                }
-                Console.ReadLine();
+                    if (pack[1].Suit == Card.Suits.Spades)
+                    {
+                        int num1 = int.Parse(pack[0].SpecialCards);
+                        int num2 = int.Parse(pack[2].SpecialCards);
+                        int CorrectAns = num1 + num2;
+                        bool correct = false;
+                        while (!correct)
+                        {
+                            Console.WriteLine("what is ", pack[0].SpecialCards, " + ", pack[2].SpecialCards);
+                            int UserAns = int.Parse(Console.ReadLine());
+
+                            // Compare user input to correct answer
+                            if (UserAns == CorrectAns)
+                            {
+                                Console.WriteLine("Correct!");
+                                correct = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorrect. Try again.");
+                            }
+                        }
+                    }
+                    else if (pack[1].Suit == Card.Suits.Diamonds)
+                    { 
+                        int num1 = int.Parse(pack[0].SpecialCards);
+                        int num2 = int.Parse(pack[2].SpecialCards);
+                        int CorrectAns = num1 - num2;
+                        bool correct = false;
+                        while (!correct)
+                        {
+                            Console.WriteLine("what is ", pack[0].SpecialCards, " - ", pack[2].SpecialCards);
+                            int UserAns = int.Parse(Console.ReadLine());
+
+                            // Compare user input to correct answer
+                            if (UserAns == CorrectAns)
+                            {
+                                Console.WriteLine("Correct!");
+                                correct = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorrect. Try again.");
+                            }
+                        }
+                    }
+                    else if (pack[1].Suit == Card.Suits.Clubs)
+                    {
+                        int num1 = int.Parse(pack[0].SpecialCards);
+                        int num2 = int.Parse(pack[2].SpecialCards);
+                        int CorrectAns = num1 * num2;
+                        bool correct = false;
+                        while (!correct)
+                        {
+                            Console.WriteLine("what is ", pack[0].SpecialCards, " * ", pack[2].SpecialCards);
+                            int UserAns = int.Parse(Console.ReadLine());
+
+                            // Compare user input to correct answer
+                            if (UserAns == CorrectAns)
+                            {
+                                Console.WriteLine("Correct!");
+                                correct = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorrect. Try again.");
+                            }
+                        }
+                    }
+                    else if (pack[1].Suit == Card.Suits.Hearts)
+                    {
+                        int num1 = int.Parse(pack[0].SpecialCards);
+                        int num2 = int.Parse(pack[2].SpecialCards);
+                        int CorrectAns = num1 / num2;
+                        bool correct = false;
+                        while (!correct)
+                        {
+                            Console.WriteLine("what is ", pack[0].SpecialCards, " / ", pack[2].SpecialCards);
+                            int UserAns = int.Parse(Console.ReadLine());
+
+                            // Compare user input to correct answer
+                            if (UserAns == CorrectAns)
+                            {
+                                Console.WriteLine("Correct!");
+                                correct = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorrect. Try again.");
+                            }
+                        }
+                    }
                 return pack;
             }
             catch (ArgumentOutOfRangeException)
