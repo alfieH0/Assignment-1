@@ -32,7 +32,6 @@ namespace CMP1903M_A01_2223
                     case "2":
                         Pack.ShuffleCardPack(3);
                         ThreeDeal();
-                        gooddata = true;
                         Console.Clear();
                         break;
                     case "3":
@@ -48,8 +47,7 @@ namespace CMP1903M_A01_2223
         {
             Pack call = new Pack();
             Pack.ShuffleCardPack(2);
-            Pack.ThreeCard();
-
+            call.ThreeCard();
         }
 
         public void instructions()

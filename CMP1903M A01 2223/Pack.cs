@@ -62,9 +62,8 @@ namespace CMP1903M_A01_2223
             }
             
         }
-        public static List<Card> ThreeCard()       //deals the ammount of cards thats been specified 
+        public void ThreeCard()
         {
-
             try
             {
                     if (pack[1].Suit == Card.Suits.Spades)
@@ -73,103 +72,114 @@ namespace CMP1903M_A01_2223
                         int num2 = int.Parse(pack[2].SpecialCards);
                         int CorrectAns = num1 + num2;
                         bool correct = false;
-                        while (!correct)
-                        {
-                            Console.WriteLine("what is ", pack[0].SpecialCards, " + ", pack[2].SpecialCards);
-                            int UserAns = int.Parse(Console.ReadLine());
-
-                            // Compare user input to correct answer
-                            if (UserAns == CorrectAns)
-                            {
-                                Console.WriteLine("Correct!");
-                                correct = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect. Try again.");
-                            }
-                        }
-                    }
-                    else if (pack[1].Suit == Card.Suits.Diamonds)
-                    { 
-                        int num1 = int.Parse(pack[0].SpecialCards);
-                        int num2 = int.Parse(pack[2].SpecialCards);
-                        int CorrectAns = num1 - num2;
-                        bool correct = false;
-                        while (!correct)
-                        {
-                            Console.WriteLine("what is ", pack[0].SpecialCards, " - ", pack[2].SpecialCards);
-                            int UserAns = int.Parse(Console.ReadLine());
-
-                            // Compare user input to correct answer
-                            if (UserAns == CorrectAns)
-                            {
-                                Console.WriteLine("Correct!");
-                                correct = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect. Try again.");
-                            }
-                        }
-                    }
-                    else if (pack[1].Suit == Card.Suits.Clubs)
+                    do
                     {
-                        int num1 = int.Parse(pack[0].SpecialCards);
-                        int num2 = int.Parse(pack[2].SpecialCards);
-                        int CorrectAns = num1 * num2;
-                        bool correct = false;
-                        while (!correct)
-                        {
-                            Console.WriteLine("what is ", pack[0].SpecialCards, " * ", pack[2].SpecialCards);
-                            int UserAns = int.Parse(Console.ReadLine());
+                        Console.WriteLine("what is {0} + {1}", num1, num2);
+                        int UserAns = int.Parse(Console.ReadLine());
 
-                            // Compare user input to correct answer
-                            if (UserAns == CorrectAns)
-                            {
-                                Console.WriteLine("Correct!");
-                                correct = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect. Try again.");
-                            }
+                        // Compare user input to correct answer
+                        if (UserAns == CorrectAns)
+                        {
+                            Console.WriteLine("Correct!");
+                            Console.ReadLine();
+                            correct = true;
                         }
+                        else
+                        {
+                            Console.WriteLine("Incorrect. Try again.");
+                            Console.ReadLine();
+                        }
+                    } while (!correct);
                     }
-                    else if (pack[1].Suit == Card.Suits.Hearts)
+                if (pack[1].Suit == Card.Suits.Diamonds)
+                {
+                    int num1 = int.Parse(pack[0].SpecialCards);
+                    int num2 = int.Parse(pack[2].SpecialCards);
+                    int CorrectAns = num1 - num2;
+                    bool correct = false;
+                    do
                     {
-                        int num1 = int.Parse(pack[0].SpecialCards);
-                        int num2 = int.Parse(pack[2].SpecialCards);
-                        int CorrectAns = num1 / num2;
-                        bool correct = false;
-                        while (!correct)
-                        {
-                            Console.WriteLine("what is ", pack[0].SpecialCards, " / ", pack[2].SpecialCards);
-                            int UserAns = int.Parse(Console.ReadLine());
+                        Console.WriteLine("what is {0} - {1}", num1, num2);
+                        int UserAns = int.Parse(Console.ReadLine());
 
-                            // Compare user input to correct answer
-                            if (UserAns == CorrectAns)
-                            {
-                                Console.WriteLine("Correct!");
-                                correct = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect. Try again.");
-                            }
+                        // Compare user input to correct answer
+                        if (UserAns == CorrectAns)
+                        {
+                            Console.WriteLine("Correct!");
+                            Console.ReadLine();
+
+                            correct = true;
                         }
-                    }
-                return pack;
+                        else
+                        {
+                            Console.WriteLine("Incorrect. Try again.");
+                            Console.ReadLine();
+                        }
+                    } while (!correct);
+                }
+                if (pack[1].Suit == Card.Suits.Clubs)
+                {
+                    int num1 = int.Parse(pack[0].SpecialCards);
+                    int num2 = int.Parse(pack[2].SpecialCards);
+                    int CorrectAns = num1 * num2;
+                    bool correct = false;
+                    do
+                    {
+                        Console.WriteLine("what is {0} * {1}", num1, num2);
+                        int UserAns = int.Parse(Console.ReadLine());
+
+                        // Compare user input to correct answer
+                        if (UserAns == CorrectAns)
+                        {
+                            Console.WriteLine("Correct!");
+                            Console.ReadLine();
+                            correct = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Incorrect. Try again.");
+                            Console.ReadLine();
+
+                        }
+                    } while (!correct);
+                }
+                if (pack[1].Suit == Card.Suits.Hearts)
+                {
+                    int num1 = int.Parse(pack[0].SpecialCards);
+                    int num2 = int.Parse(pack[2].SpecialCards);
+                    int CorrectAns = num1 / num2;
+                    bool correct = false;
+                    do
+                    {
+                        Console.WriteLine("what is {0} / {1}", num1, num2);
+                        int UserAns = int.Parse(Console.ReadLine());
+
+                        // Compare user input to correct answer
+                        if (UserAns == CorrectAns)
+                        {
+                            Console.WriteLine("Correct!");
+                            Console.ReadLine();
+                            correct = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Incorrect. Try again.");
+                            Console.ReadLine();
+
+                        }
+                    } while (!correct);
+                }
+                
             }
             catch (ArgumentOutOfRangeException)
             { 
                 Console.WriteLine("you have run out of cards in the pack");
-                return pack;
+                
             }
             catch (FormatException)
             {
                 Console.WriteLine("what you entered was not a number try again");
-                return pack;
+                
             }
         }
         public void FYShuffle()         //Fisher-Yates Shuffle the deck of cards 

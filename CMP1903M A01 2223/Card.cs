@@ -35,25 +35,7 @@ namespace CMP1903M_A01_2223
             get
             {
                 string name = string.Empty;     //sets the specific numbers to allways to represented by these strings 
-                switch (Value)
-                {
-                    case (1):
-                        name = "Ace";
-                        break;
-                    case (13):
-                        name = "King";
-                        break;
-                    case (12):
-                        name = "Queen";
-                        break;
-                    case (11):
-                        name = "Jack";
-                        break;
-                    default:
-                        name = Value.ToString();
-                        break;
-                }
-
+                name = Value.ToString();
                 return name;
             }
         }
