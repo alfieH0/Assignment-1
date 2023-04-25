@@ -39,39 +39,19 @@ namespace CMP1903M_A01_2223
                 case 2:
                     call.FYShuffle();
                     break;
-                case 3:
-                    call.RiffleShuffle();
-                    break;
             }
             return true;
         }
-        public static Card deal()           //deals one card
+        public void ThreeCard()         //error where if you press enter it will escape from while loop plus need error testing
         {
             try
             {
-                Card card = pack[0];
-                Console.WriteLine(card.CardName);
-                Console.ReadLine();
-                pack.RemoveAt(0);
-                return card;
-            }
-            catch (ArgumentOutOfRangeException) 
-            {
-                Console.WriteLine("you have run out of cards in the pack");
-                return null;
-            }
-            
-        }
-        public void ThreeCard()
-        {
-            try
-            {
-                    if (pack[1].Suit == Card.Suits.Spades)
+                if (pack[1].Suit == Card.Suits.Spades)
                     {
-                        int num1 = int.Parse(pack[0].SpecialCards);
-                        int num2 = int.Parse(pack[2].SpecialCards);
-                        int CorrectAns = num1 + num2;
-                        bool correct = false;
+                    int num1 = int.Parse(pack[0].SpecialCards);
+                    int num2 = int.Parse(pack[2].SpecialCards);
+                    int CorrectAns = num1 + num2;
+                    bool correct = false;
                     do
                     {
                         Console.WriteLine("what is {0} + {1}", num1, num2);
@@ -91,7 +71,7 @@ namespace CMP1903M_A01_2223
                         }
                     } while (!correct);
                     }
-                if (pack[1].Suit == Card.Suits.Diamonds)
+                else if (pack[1].Suit == Card.Suits.Diamonds)
                 {
                     int num1 = int.Parse(pack[0].SpecialCards);
                     int num2 = int.Parse(pack[2].SpecialCards);
@@ -117,7 +97,7 @@ namespace CMP1903M_A01_2223
                         }
                     } while (!correct);
                 }
-                if (pack[1].Suit == Card.Suits.Clubs)
+                else if (pack[1].Suit == Card.Suits.Clubs)
                 {
                     int num1 = int.Parse(pack[0].SpecialCards);
                     int num2 = int.Parse(pack[2].SpecialCards);
@@ -143,16 +123,17 @@ namespace CMP1903M_A01_2223
                         }
                     } while (!correct);
                 }
-                if (pack[1].Suit == Card.Suits.Hearts)
+                else if (pack[1].Suit == Card.Suits.Hearts)
                 {
-                    int num1 = int.Parse(pack[0].SpecialCards);
-                    int num2 = int.Parse(pack[2].SpecialCards);
-                    int CorrectAns = num1 / num2;
+                    decimal num1 = decimal.Parse(pack[0].SpecialCards);
+                    decimal num2 = decimal.Parse(pack[2].SpecialCards);
+                    decimal CorrectAns = Math.Round(num1/num2, 2);
                     bool correct = false;
                     do
                     {
                         Console.WriteLine("what is {0} / {1}", num1, num2);
-                        int UserAns = int.Parse(Console.ReadLine());
+                        Console.WriteLine("round to 2 decimal places when applicable");
+                        decimal UserAns = decimal.Parse(Console.ReadLine());
 
                         // Compare user input to correct answer
                         if (UserAns == CorrectAns)
@@ -171,15 +152,10 @@ namespace CMP1903M_A01_2223
                 }
                 
             }
-            catch (ArgumentOutOfRangeException)
-            { 
-                Console.WriteLine("you have run out of cards in the pack");
-                
-            }
             catch (FormatException)
             {
                 Console.WriteLine("what you entered was not a number try again");
-                
+                ThreeCard();
             }
         }
         public void FYShuffle()         //Fisher-Yates Shuffle the deck of cards 
@@ -192,25 +168,6 @@ namespace CMP1903M_A01_2223
                 Card temp = pack[i];
                 pack[i] = pack[j];
                 pack[j] = temp;
-            }
-
-        }
-        public void RiffleShuffle()     //does a perfect riffle shuffle to the cards
-        {
-
-            int half = pack.Count / 2;
-            List<Card> OneHalf = pack.GetRange(0, half);
-            List<Card> SecHalf = pack.GetRange(half, pack.Count - half);
-
-            pack.Clear();
-            for (int i = 0; i < half; i++)
-            {
-                pack.Add(OneHalf[i]);
-                pack.Add(SecHalf[i]);
-            }
-            if (SecHalf.Count > OneHalf.Count)
-            {
-                pack.AddRange(SecHalf.GetRange(half, SecHalf.Count - half));
             }
         }
     }

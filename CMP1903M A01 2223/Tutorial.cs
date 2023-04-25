@@ -10,7 +10,6 @@ namespace CMP1903M_A01_2223
     {
         public void menu()
         {
-
             bool gooddata = false;          //used to create a loop
             Pack call = new Pack();
 
@@ -25,13 +24,12 @@ namespace CMP1903M_A01_2223
                 switch (choice)
                 {
                     case "1":
-                        Pack.ShuffleCardPack(1);
                         instructions();
                         Console.Clear();
                         break;
                     case "2":
-                        Pack.ShuffleCardPack(3);
-                        ThreeDeal();
+                        Pack.ShuffleCardPack(2);
+                        call.ThreeCard();
                         Console.Clear();
                         break;
                     case "3":
@@ -42,14 +40,6 @@ namespace CMP1903M_A01_2223
 
             } while (gooddata == false);
         }
-
-        public void ThreeDeal()
-        {
-            Pack call = new Pack();
-            Pack.ShuffleCardPack(2);
-            call.ThreeCard();
-        }
-
         public void instructions()
         {
             Console.Clear();
@@ -68,56 +58,6 @@ namespace CMP1903M_A01_2223
             Console.WriteLine("you can either try with new cards or end the program");
             Console.ReadKey();
         }
-
-
-
-
-
-
-
-        /*
-
-      public void dealing() 
-      {
-          bool gooddata = false;          //used to create a loop
-          Pack call = new Pack();
-
-          string choice;      //saves users responce in menu 
-          do                 //a menu that will loop until the user enters exit
-          {
-
-              Console.WriteLine("1. deal one card");
-              Console.WriteLine("2. deal a specific amount of cards");
-              Console.WriteLine("3. exit program");
-              choice = Console.ReadLine().ToUpper();           //this will save the responce to what was entered into the menu 
-              switch (choice)
-              {
-                  case "1":
-                      Pack.deal();
-
-                      break;
-                  case "2": 
-                      int amm = 0;
-                      try
-                      {
-                          Console.WriteLine("how many cards would you like to deal?");
-                          amm = int.Parse(Console.ReadLine());
-                      }
-                      catch (FormatException)
-                      {
-                          Console.WriteLine("what you entered was not a number try again");
-                      }
-                      Pack.dealCard(amm);
-                      break;
-                  case "3":
-                      gooddata = true;
-                      Console.Clear();
-                      break;
-              }
-
-          } while (gooddata == false);
-
-           */
     }
            
 }
