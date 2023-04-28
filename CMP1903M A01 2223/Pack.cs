@@ -50,6 +50,9 @@ namespace CMP1903M_A01_2223
                     {       
                     int num1 = int.Parse(pack[0].SpecialCards);                     //converts the first card to a number
                     int num2 = int.Parse(pack[2].SpecialCards);                     //converts the second card to a number
+                    Console.WriteLine(pack[0].CardName);
+                    Console.WriteLine(pack[1].CardName);
+                    Console.WriteLine(pack[2].CardName);      
                     int CorrectAns = num1 + num2;
                     bool correct = false;                                           //used to set up a post check loop
                     do
